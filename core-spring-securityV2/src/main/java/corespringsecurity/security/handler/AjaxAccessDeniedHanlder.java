@@ -1,0 +1,21 @@
+package corespringsecurity.security.handler;
+
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.web.access.AccessDeniedHandler;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+// 인증은 했지만 자원 접근 권한이 부족할때
+public class AjaxAccessDeniedHanlder implements AccessDeniedHandler {
+    @Override
+    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
+
+        response.sendError(HttpServletResponse.SC_FORBIDDEN,"Access Denied");
+
+
+
+    }
+}
